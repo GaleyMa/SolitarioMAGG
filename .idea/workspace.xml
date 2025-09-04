@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/back2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/cj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/cq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/da.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tq.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/SolitarioApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/SolitarioApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GaleyMa&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GaleyMa/SolitarioMAGG.git&quot;,
+    &quot;accountId&quot;: &quot;0ae227f9-f5c3-4556-9d87-70f9dbd4846a&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="32Ay1zCrYPIOUCX6sEp6qCy12ZR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Launcher.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\iamma\OneDrive\MAYRAPC\Uni\Algoritmos y Estructuras de Datos\LAB\P1\SolitarioMAGG\src\main\resources\Cartas" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.solitariomagg.Launcher" />
+      <module name="SolitarioMAGG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.solitariomagg.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="" />
+      <created>1756877462930</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756877462930</updated>
+      <workItem from="1756877466962" duration="15000" />
+      <workItem from="1756877546915" duration="11237000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
