@@ -115,6 +115,9 @@ public class SolitaireGame {
             tableau.add(t);
         }
     }
+    public ArrayList<FoundationDeck> getFoundations() {
+        return foundation;
+    }
 
     public DrawPile getDrawPile() { return drawPile; }
     public WastePile getWastePile() { return wastePile; }

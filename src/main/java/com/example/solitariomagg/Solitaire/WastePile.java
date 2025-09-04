@@ -48,6 +48,16 @@ public class WastePile {
         return regresar;
     }
 
+    public ArrayList<CartaInglesa> getUltimasCartas(int n) {
+        ArrayList<CartaInglesa> ultimas = new ArrayList<>();
+        for (int i = cartas.size() - n; i < cartas.size(); i++) {
+            if (i >= 0) ultimas.add(cartas.get(i));
+        }
+        return new ArrayList<>(ultimas);
+    }
+
+
+
     @Override
     public String toString() {
         StringBuilder stb = new StringBuilder();
