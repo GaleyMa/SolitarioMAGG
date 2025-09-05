@@ -4,40 +4,47 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="700" prefWidth="1000" spacing="10" style="-fx-background-color: #f7dae5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="com.example.solitariomagg.Controller">
-   <ToolBar prefHeight="40.0" prefWidth="200.0">
-     <items>
-       <Button fx:id="botonReiniciar" mnemonicParsing="false" text="Reiniciar" textFill="#9e5d9e" />
-         <Button fx:id="botonCreditos" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="Creditos" textFill="#ab4eb4" />
-     </items>
-   </ToolBar>
+<VBox prefHeight="700" prefWidth="1000" spacing="10" style="-fx-background-color: #f7dae5;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.solitariomagg.Controller">
 
-    <!-- Área principal del juego -->
+    <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button fx:id="botonReiniciar" mnemonicParsing="false" onAction="#reinicioButtonClicked" text="Reiniciar" textFill="#9e5d9e" />
+            <Button fx:id="botonCreditos" mnemonicParsing="false" text="Creditos" textFill="#ab4eb4" />
+        </items>
+    </ToolBar>
+
     <AnchorPane prefHeight="700" prefWidth="1000">
 
-        <!-- Mazo para robar cartas -->
+        <!-- Draw pile -->
         <ImageView fx:id="drawPile" fitHeight="120" fitWidth="80" layoutX="30" layoutY="30" />
 
-        <!-- Pila de descarte -->
+        <!-- Waste pile (última carta) -->
         <Pane fx:id="wastePane" layoutX="130" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black; -fx-background-color: lightgray;" />
 
+        <!-- Contenedor de 3 cartas visibles del waste -->
+        <HBox fx:id="wasteContainer" layoutX="230" layoutY="30" prefHeight="120" prefWidth="240.0" spacing="15" />
+
+        <!-- Reverso del waste para ciclar cartas -->
+        <Pane fx:id="wasteBackPane" layoutX="37.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black; -fx-background-color: darkgray;" />
+
         <!-- Foundations -->
-        <Pane fx:id="foundation0" layoutX="350" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation1" layoutX="450" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation2" layoutX="550" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation3" layoutX="650" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation0" layoutX="527.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation1" layoutX="626.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation2" layoutX="727.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation3" layoutX="822.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
 
         <!-- Tableaus (7 columnas) -->
-        <Pane fx:id="tableau0" layoutX="30" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau1" layoutX="130" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau2" layoutX="230" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau3" layoutX="330" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau4" layoutX="430" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau5" layoutX="530" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="tableau6" layoutX="630" layoutY="200" prefHeight="400" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="tableau0" layoutX="30" layoutY="200" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau1" layoutX="165.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau2" layoutX="297.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau3" layoutX="428.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau4" layoutX="558.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau5" layoutX="689.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau6" layoutX="819.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
 
     </AnchorPane>
 </VBox>

@@ -4,68 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/back2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/c9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/cj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/cq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/d9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/da.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/dq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/p9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/pq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/t9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/ta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Cartas/tq.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/SolitarioApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/SolitarioApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/TableauDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/TableauDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/cartas/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/cartas/Mazo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +42,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -116,6 +66,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
   }
@@ -161,12 +112,33 @@
       <option name="presentableId" value="Default" />
       <updated>1756877462930</updated>
       <workItem from="1756877466962" duration="15000" />
-      <workItem from="1756877546915" duration="11237000" />
+      <workItem from="1756877546915" duration="40009000" />
     </task>
+    <task id="LOCAL-00001" summary="!">
+      <option name="closed" value="true" />
+      <created>1756945717987</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1756945717987</updated>
+    </task>
+    <task id="LOCAL-00002" summary="!">
+      <option name="closed" value="true" />
+      <created>1756960387186</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1756960387186</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="!" />
+    <option name="LAST_COMMIT_MESSAGE" value="!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

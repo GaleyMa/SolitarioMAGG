@@ -3,6 +3,7 @@ import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Mazo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Modela un mazo de cartas de solitario.
@@ -60,15 +61,21 @@ public class DrawPile {
      */
     public ArrayList<CartaInglesa> retirarCartas() {
         ArrayList<CartaInglesa> retiradas = new ArrayList<>();
-        int maximoARetirar = cartas.size() < cuantasCartasSeEntregan ? cartas.size() : cuantasCartasSeEntregan;
+        int maximoARetirar = Math.min(cartas.size(), cuantasCartasSeEntregan);
 
         for (int i = 0; i < maximoARetirar; i++) {
-            CartaInglesa retirada = cartas.remove(0);
+            // 🔹 Sacar siempre del final (tope del mazo)
+            CartaInglesa retirada = cartas.remove(cartas.size() - 1);
             retirada.makeFaceUp();
             retiradas.add(retirada);
         }
+
+        // 🔹 Como las sacamos de atrás hacia adelante, las invertimos
+        Collections.reverse(retiradas);
+
         return retiradas;
     }
+
 
     /**
      * Indica si aún quedan cartas para entregar.
@@ -94,6 +101,16 @@ public class DrawPile {
         cartas = cartasAgregar;
         for (CartaInglesa aCarta : cartas) {
             aCarta.makeFaceDown();
+        }
+    }
+    public int getSize(){
+        return cartas.size();
+    }
+
+    public void voltear(){
+        for (CartaInglesa c: cartas){
+            if(c.isFaceup()) c.makeFaceDown();
+            else c.makeFaceUp();
         }
     }
 

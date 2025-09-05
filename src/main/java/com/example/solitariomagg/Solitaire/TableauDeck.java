@@ -27,26 +27,16 @@ public class TableauDeck {
         ultima.makeFaceUp();
     }
 
-    /**
-     * Remove cards starting from the one with a specified value.
-     *
-     * @param value of starting card to remove
-     * @return removed cards or empty ArrayList if it is not possible to remove.
-     */
-    public ArrayList<CartaInglesa> removeStartingAt(int value) {
+    public ArrayList<CartaInglesa> removeStartingAt(int index) {
         ArrayList<CartaInglesa> removed = new ArrayList<>();
-        Iterator<CartaInglesa> iterator = cartas.iterator();
-        while (iterator.hasNext()) {
-            CartaInglesa next = iterator.next();
-            if (next.isFaceup()) {
-                if (next.getValor() <= value) {
-                    removed.add(next);
-                    iterator.remove();
-                }
-            }
+        if (index >= 0 && index < cartas.size()) {
+            removed.addAll(cartas.subList(index, cartas.size()));
+            cartas.subList(index, cartas.size()).clear();
         }
         return removed;
     }
+
+
 
     public CartaInglesa viewCardStartingAt(int value) {
         CartaInglesa cartaConElValorDeseado = null;
@@ -85,7 +75,7 @@ public class TableauDeck {
      *
      * @return la carta que está al final, null si estaba vacio
      */
-    CartaInglesa verUltimaCarta() {
+    public CartaInglesa verUltimaCarta() {
         CartaInglesa ultimaCarta = null;
         if (!cartas.isEmpty()) {
             ultimaCarta = cartas.getLast();
@@ -98,7 +88,7 @@ public class TableauDeck {
      *
      * @return la carta que removió, null si estaba vacio
      */
-    CartaInglesa removerUltimaCarta() {
+    public CartaInglesa removerUltimaCarta() {
         CartaInglesa ultimaCarta = null;
         if (!cartas.isEmpty()) {
             ultimaCarta = cartas.getLast();
@@ -161,23 +151,19 @@ public class TableauDeck {
      * @param cartaInicialDePrueba
      * @return true si puede ser la siguiente, false si no
      */
+
     public boolean sePuedeAgregarCarta(CartaInglesa cartaInicialDePrueba) {
-        boolean resultado = false;
         if (!cartas.isEmpty()) {
-            CartaInglesa ultima = cartas.getLast();
-            if (!ultima.getColor().equals(cartaInicialDePrueba.getColor())) {
-                if (ultima.getValor() == cartaInicialDePrueba.getValor() + 1) {
-                    resultado = true;
-                }
-            }
+            CartaInglesa ultima = cartas.get(cartas.size() - 1);
+            return !ultima.getColor().equals(cartaInicialDePrueba.getColor()) &&
+                    ultima.getValor() == cartaInicialDePrueba.getValor() + 1;
         } else {
-            // Está vacio el tableau, solo se puede agregar la cara si es rey
-            if (cartaInicialDePrueba.getValor() == 13) {
-                resultado = true;
-            }
+            // Tableau vacío → solo reyes
+            System.out.println("Debug: Tableau vacío, carta=" + cartaInicialDePrueba);
+            return cartaInicialDePrueba.getValor() == 13;
         }
-        return resultado;
     }
+
 
     /**
      * Obtiene la última carta del Tableau sin removerla.
@@ -190,6 +176,16 @@ public class TableauDeck {
         }
         return ultimaCarta;
     }
+
+    public ArrayList<CartaInglesa> getUltimasCartas(int n) {
+        ArrayList<CartaInglesa> ultimas = new ArrayList<>();
+        int start = Math.max(cartas.size() - n, 0);
+        for (int i = start; i < cartas.size(); i++) {
+            ultimas.add(cartas.get(i));
+        }
+        return ultimas;
+    }
+
 
     public ArrayList<CartaInglesa> getCards() {
         return cartas;

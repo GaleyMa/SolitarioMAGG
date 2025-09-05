@@ -1,16 +1,20 @@
 package com.example.solitariomagg.Solitaire;
 
-import com.example.solitariomagg.cartas.Palo;
 import com.example.solitariomagg.cartas.CartaInglesa;
+import com.example.solitariomagg.cartas.Palo;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class SolitaireGame {
     private ArrayList<TableauDeck> tableau = new ArrayList<>();
     private ArrayList<FoundationDeck> foundation = new ArrayList<>();
-    private FoundationDeck lastFoundationUpdated;
     private DrawPile drawPile;
     private WastePile wastePile;
+    private FoundationDeck lastFoundationUpdated;
 
     public SolitaireGame() {
         drawPile = new DrawPile();
@@ -20,45 +24,103 @@ public class SolitaireGame {
         wastePile.addCartas(drawPile.retirarCartas());
     }
 
-    public void reloadDrawPile() {
-        ArrayList<CartaInglesa> cards = wastePile.emptyPile();
-        drawPile.recargar(cards);
+    private void createTableaux() {
+        for (int i = 0; i < 7; i++) {
+            TableauDeck t = new TableauDeck();
+            t.inicializar(drawPile.getCartas(i + 1));
+            tableau.add(t);
+        }
     }
+
+    private void createFoundations() {
+        for (Palo palo : Palo.values()) {
+            foundation.add(new FoundationDeck(palo));
+        }
+    }
+
+    // ----------------- GETTERS -----------------
+    public ArrayList<TableauDeck> getTableau() { return tableau; }
+    public ArrayList<FoundationDeck> getFoundations() { return foundation; }
+    public DrawPile getDrawPile() { return drawPile; }
+    public WastePile getWastePile() { return wastePile; }
+    public FoundationDeck getLastFoundationUpdated() { return lastFoundationUpdated; }
+
+    // ----------------- MOVIMIENTOS -----------------
+    /*public void drawCards() {
+        wastePile.addCartas(drawPile.retirarCartas());
+    }*/
 
     public void drawCards() {
         ArrayList<CartaInglesa> cards = drawPile.retirarCartas();
         wastePile.addCartas(cards);
     }
 
-    // ----------------- MOVIMIENTOS -----------------
+    public void cycleWastePile() {
+        if (!wastePile.hayCartas()) return; // no hay cartas que ciclar
+
+        List<CartaInglesa> todas = wastePile.getUltimasCartas(wastePile.getSize());
+        wastePile.emptyPile();        // vaciar waste
+        // invertir orden para volver a colocar en drawPile
+        Collections.reverse(todas);
+        drawPile.voltear();
+        drawPile.recargar((ArrayList<CartaInglesa>) todas);   // volver al drawPile
+
+    }
+
+    public boolean drawOrCycle() {
+        if (drawPile.hayCartas()) {
+            drawCards();
+            return true;
+        } else if (wastePile.hayCartas()) {
+            cycleWastePile();
+            return true;
+        }
+        return false; // no hay cartas que mover
+    }
+
+
+    public void reloadDrawPile() {
+        drawPile.recargar(wastePile.emptyPile());
+    }
 
     public boolean moveWasteToTableau(int tableauDestino) {
         TableauDeck destino = tableau.get(tableauDestino);
         CartaInglesa carta = wastePile.verCarta();
         if (carta != null && destino.sePuedeAgregarCarta(carta)) {
-            wastePile.getCarta(); // eliminar de waste
+            wastePile.getCarta();
             destino.agregarCarta(carta);
             return true;
         }
         return false;
     }
 
-    public boolean moveTableauToTableau(int tableauFuente, int tableauDestino) {
+    public boolean moveTableauToTableau(int tableauFuente, int tableauDestino, CartaInglesa cartaFuente) {
         TableauDeck fuente = tableau.get(tableauFuente);
         TableauDeck destino = tableau.get(tableauDestino);
-
+        int indexCarta= fuente.getCards().indexOf(cartaFuente);
         if (fuente.isEmpty()) return false;
+        if (indexCarta < 0 || indexCarta >= fuente.getCards().size()) return false;
 
-        CartaInglesa cartaInicial = fuente.verUltimaCarta();
-        if (cartaInicial != null && destino.sePuedeAgregarCarta(cartaInicial)) {
-            ArrayList<CartaInglesa> cartas = fuente.removeStartingAt(cartaInicial.getValor());
-            if (destino.agregarBloqueDeCartas(cartas)) {
-                if (!fuente.isEmpty()) fuente.verUltimaCarta().makeFaceUp();
-                return true;
+        // Obtenemos bloque de cartas desde indexCarta hasta el final
+        ArrayList<CartaInglesa> bloque = fuente.removeStartingAt(indexCarta);
+
+        if (bloque.isEmpty()) return false;
+
+        // Verificamos si se puede colocar el bloque en destino
+        if (destino.agregarBloqueDeCartas(bloque)) {
+            if (!fuente.isEmpty()) {
+                fuente.getUltimaCarta().makeFaceUp();
             }
+            return true;
+        } else {
+            // si no se pudo, regresamos el bloque a la fuente
+            fuente.getCards().addAll(bloque);
+            return false;
         }
-        return false;
     }
+
+
+
 
     public boolean moveWasteToFoundation(int foundationIdx) {
         if (foundationIdx < 0 || foundationIdx > 3) return false;
@@ -67,7 +129,7 @@ public class SolitaireGame {
 
         FoundationDeck destino = foundation.get(foundationIdx);
         if (destino.agregarCarta(carta)) {
-            wastePile.getCarta(); // eliminar de waste
+            wastePile.getCarta();
             lastFoundationUpdated = destino;
             return true;
         }
@@ -88,12 +150,10 @@ public class SolitaireGame {
             if (!fuente.isEmpty()) fuente.verUltimaCarta().makeFaceUp();
             return true;
         } else {
-            fuente.agregarCarta(carta); // revertir si falla
+            fuente.agregarCarta(carta);
             return false;
         }
     }
-
-    // ----------------- MÉTODOS AUXILIARES -----------------
 
     public boolean isGameOver() {
         for (FoundationDeck f : foundation) {
@@ -102,41 +162,5 @@ public class SolitaireGame {
         return true;
     }
 
-    private void createFoundations() {
-        for (Palo palo : Palo.values()) {
-            foundation.add(new FoundationDeck(palo));
-        }
-    }
 
-    private void createTableaux() {
-        for (int i = 0; i < 7; i++) {
-            TableauDeck t = new TableauDeck();
-            t.inicializar(drawPile.getCartas(i + 1));
-            tableau.add(t);
-        }
-    }
-    public ArrayList<FoundationDeck> getFoundations() {
-        return foundation;
-    }
-
-    public DrawPile getDrawPile() { return drawPile; }
-    public WastePile getWastePile() { return wastePile; }
-    public ArrayList<TableauDeck> getTableau() { return tableau; }
-    public FoundationDeck getLastFoundationUpdated() { return lastFoundationUpdated; }
-
-    @Override
-    public String toString() {
-        StringBuilder str = new StringBuilder();
-        str.append("Foundations:\n");
-        for (FoundationDeck f : foundation) str.append(f).append("\n");
-
-        str.append("\nTableaux:\n");
-        for (int i = 0; i < tableau.size(); i++) {
-            str.append(i).append(" ").append(tableau.get(i)).append("\n");
-        }
-
-        str.append("Waste:\n").append(wastePile).append("\n");
-        str.append("Draw:\n").append(drawPile).append("\n");
-        return str.toString();
-    }
 }

@@ -10,6 +10,7 @@ module com.example.solitariomagg {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens com.example.solitariomagg to javafx.fxml;
     exports com.example.solitariomagg;

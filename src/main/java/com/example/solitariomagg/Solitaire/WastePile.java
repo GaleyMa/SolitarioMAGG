@@ -48,6 +48,9 @@ public class WastePile {
         return regresar;
     }
 
+    public int getSize(){
+        return cartas.size();
+    }
     public ArrayList<CartaInglesa> getUltimasCartas(int n) {
         ArrayList<CartaInglesa> ultimas = new ArrayList<>();
         for (int i = cartas.size() - n; i < cartas.size(); i++) {
