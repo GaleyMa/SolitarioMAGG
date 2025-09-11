@@ -51,6 +51,16 @@ public class Controller {
         });
 
     }
+    public void creditosButtonClicked(ActionEvent event){
+        mostrarCreditos();
+    }
+    public void mostrarCreditos(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Creditos");
+        alert.setHeaderText("Elaborado por: Mayra García Garrido");
+        alert.setContentText("Con base en proyecto 'Solitario' elaborado por Prof. Cecilia Curlango\n Repositorio: https://github.com/GaleyMa/SolitarioMAGG#");
+        alert.show();
+    }
     public void reinicioButtonClicked(ActionEvent event) {
         mostrarGameOver(true);
         initialize();
@@ -71,7 +81,7 @@ public class Controller {
         });
     }
 
-private void selectCarta(ImageView cartaView, int origen, int indice, CartaInglesa carta) {
+    private void selectCarta(ImageView cartaView, int origen, int indice, CartaInglesa carta) {
     cartaView.setOnMouseClicked(e -> {
 
         if (carta != null && !carta.isFaceup()) {
@@ -226,7 +236,6 @@ private void selectCarta(ImageView cartaView, int origen, int indice, CartaIngle
         pane.getChildren().add(iv);
     }
 
-
     private void mostrarTableau(Pane pane, int idx) {
         List<CartaInglesa> cartas = game.getTableau().get(idx).getCards();
         pane.getChildren().clear(); // limpiar antes de pintar
@@ -271,8 +280,6 @@ private void selectCarta(ImageView cartaView, int origen, int indice, CartaIngle
             }
         }
     }
-
-
 
 
     private ImageView crearImagenDeCarta(CartaInglesa carta) {
