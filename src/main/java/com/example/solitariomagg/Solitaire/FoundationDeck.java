@@ -36,26 +36,28 @@ public class FoundationDeck {
      * @return true si se pudo guardar la carta, false si no
      */
     public boolean agregarCarta(CartaInglesa carta) {
-        boolean agregado = false;
-        if (carta.tieneElMismoPalo(palo)) {
-            if (cartas.isEmpty()) {
-                if (carta.getValorBajo() == 1) {
-                    // si no hay cartas entonces la carta debe ser un A
-                    cartas.add(carta);
-                    agregado = true;
-                }
-            } else {
-                // si hay cartas entonces debe haber secuencia
-                CartaInglesa ultimaCarta = cartas.getLast();
-                if (ultimaCarta.getValorBajo() + 1 == carta.getValorBajo()) {
-                    // agregar la carta si el la siguiente a la última
-                    cartas.add(carta);
-                    agregado = true;
-                }
+        if (carta == null) return false;
+
+        if (cartas.isEmpty()) {
+            // Si está vacía, solo entra un As y define el palo de esta foundation
+            if (carta.getValorBajo() == 1) {
+                palo = carta.getPalo();   // ⚡ aquí se fija el palo
+                cartas.add(carta);
+                return true;
             }
+            return false;
+        } else {
+            // Si no está vacía, debe coincidir palo y seguir secuencia
+            CartaInglesa ultimaCarta = cartas.getLast();
+            if (carta.tieneElMismoPalo(palo) &&
+                    carta.getValorBajo() == ultimaCarta.getValorBajo() + 1) {
+                cartas.add(carta);
+                return true;
+            }
+            return false;
         }
-        return agregado;
     }
+
 
     /**
      * Remover la última carta del montículo.

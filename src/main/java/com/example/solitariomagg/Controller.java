@@ -5,6 +5,7 @@ import com.example.solitariomagg.Solitaire.FoundationDeck;
 import com.example.solitariomagg.Solitaire.WastePile;
 import com.example.solitariomagg.cartas.CartaInglesa;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -41,6 +42,8 @@ public class Controller {
             }
         });
 
+
+
         wasteBackPane.setOnMouseClicked(e -> {
             if (game.drawOrCycle()) {
                 actualizarVista();
@@ -49,6 +52,7 @@ public class Controller {
 
     }
     public void reinicioButtonClicked(ActionEvent event) {
+        mostrarGameOver(true);
         initialize();
     }
 
@@ -59,7 +63,6 @@ public class Controller {
         img.setFitHeight(120);
         wasteBackPane.getChildren().add(img);
 
-        // Clic → ciclar 3 cartas visibles (si quieres avanzar en bloques de 3)
         wasteBackPane.setOnMouseClicked(e -> {
             if (game.getWastePile().hayCartas()) {
                 game.drawCards();
@@ -67,87 +70,92 @@ public class Controller {
             }
         });
     }
-/*
-    private void configurarClickCarta(ImageView cartaView, int origen, int indice, CartaInglesa carta) {
-        cartaView.setOnMouseClicked(e -> {
-            if (cartaSeleccionada == null) {
-                // Primera selección
-                cartaSeleccionada = cartaView;
-                origenSeleccionado = origen;
-                indiceOrigenSeleccionado = indice;
-                cartaSeleccionada.setUserData(carta); // guardo la carta asociada
-                cartaView.setStyle("-fx-effect: dropshadow(gaussian, yellow, 15, 0.8, 0, 0);");
-            } else {
-                // Intentar movimiento
-                boolean movimiento = false;
 
-                if (origenSeleccionado == 0) { // desde waste
-                    if (origen >= 1 && origen <= 7) { // hacia tableau
-                        movimiento = game.moveWasteToTableau(indice);
-                    } else if (origen >= 10 && origen <= 13) { // hacia foundation
-                        movimiento = game.moveWasteToFoundation(indice - 10);
-                    }
-                } else if (origenSeleccionado >= 1 && origenSeleccionado <= 7) { // desde tableau
-                    int fuente = indiceOrigenSeleccionado;
-                    CartaInglesa cartaFuente = (CartaInglesa) cartaSeleccionada.getUserData();
-                    if (origen >= 1 && origen <= 7) { // hacia tableau
-                        movimiento = game.moveTableauToTableau(fuente, indice, cartaFuente);
-                    } else if (origen >= 10 && origen <= 13) { // hacia foundation
-                        movimiento = game.moveTableauToFoundation(fuente, indice - 10);
-                    }
-                }
+private void selectCarta(ImageView cartaView, int origen, int indice, CartaInglesa carta) {
+    cartaView.setOnMouseClicked(e -> {
 
+        if (carta != null && !carta.isFaceup()) {
+            System.out.println("Ignorado: clic en carta boca abajo -> " + carta);
+            return;
+        }
 
-                // limpiar selección
-                cartaSeleccionada.setStyle("");
-                cartaSeleccionada = null;
-                origenSeleccionado = -1;
-                indiceOrigenSeleccionado = -1;
+        if (cartaSeleccionada == null) {
 
-                if (movimiento) actualizarVista();
+            if (carta == null) {
+                return;
             }
-        });
-    }
-*/
-    private void configurarClickCarta(ImageView cartaView, int origen, int indice, CartaInglesa carta) {
-        cartaView.setOnMouseClicked(e -> {
-            if (cartaSeleccionada == null) {
-                // Primera selección
-                cartaSeleccionada = cartaView;
-                origenSeleccionado = origen;
-                indiceOrigenSeleccionado = indice;
-                cartaSeleccionada.setUserData(carta);
-                cartaView.setStyle("-fx-effect: dropshadow(gaussian, yellow, 15, 0.8, 0, 0);");
-            } else {
-                boolean movimiento = false;
 
-                if (origenSeleccionado >= 1 && origenSeleccionado <= 7) { // tableau a otro
-                    int fuente = indiceOrigenSeleccionado;
-                    CartaInglesa cartaFuente = (CartaInglesa) cartaSeleccionada.getUserData();
-                    if (origen >= 1 && origen <= 7) {
-                        movimiento = game.moveTableauToTableau(fuente, indice, cartaFuente);
-                    } else if (origen >= 10 && origen <= 13) {
-                        movimiento = game.moveTableauToFoundation(fuente, indice - 10);
-                    }
-                } else if (origenSeleccionado == 0) { // waste a tableau
-                    if (origen >= 1 && origen <= 7) {
-                        CartaInglesa cartaFuente = (CartaInglesa) cartaSeleccionada.getUserData();
-                        movimiento = game.moveWasteToTableau(indice);
-                    }
-                }
+            cartaSeleccionada = cartaView;
+            origenSeleccionado = origen;
+            indiceOrigenSeleccionado = indice;
+            cartaSeleccionada.setUserData(carta);
+            cartaView.setStyle("-fx-effect: dropshadow(one-pass-box, grey, 15, 0.8, 0, 0);");
 
-                // limpiar selección
-                cartaSeleccionada.setStyle("");
-                cartaSeleccionada = null;
-                origenSeleccionado = -1;
-                indiceOrigenSeleccionado = -1;
+            System.out.println(String.format("Seleccionada: origen=%d idx=%d carta=%s", origen, indice, carta));
+            return;
+        }
 
-                if (movimiento) actualizarVista();
+        boolean movimiento = false;
+
+        //de waste
+        if (origenSeleccionado == 0) {
+            if (origen >= 1 && origen <= 7) {
+                System.out.println("Intentando moveWasteToTableau(dest=" + indice + ")");
+                movimiento = game.moveWasteToTableau(indice);
+                System.out.println("Resultado moveWasteToTableau: " + movimiento);
+            } else if (origen >= 10 && origen <= 13) {
+                System.out.println("Intentando moveWasteToFoundation(dest=" + (indice - 10) + ")");
+                movimiento = game.moveWasteToFoundation(indice - 10);
+                System.out.println("Resultado moveWasteToFoundation: " + movimiento);
             }
-        });
+
+            // de tableu
+        } else if (origenSeleccionado >= 1 && origenSeleccionado <= 7) {
+            int fuenteIdx = indiceOrigenSeleccionado;
+            CartaInglesa cartaFuente = (CartaInglesa) cartaSeleccionada.getUserData();
+            System.out.println("Carta fuente seleccionada: " + cartaFuente + " (tabla " + fuenteIdx + ")");
+
+            if (origen >= 1 && origen <= 7) {
+                System.out.println("Intentando moveTableauToTableau(fuente=" + fuenteIdx + ", destino=" + indice + ", carta=" + cartaFuente + ")");
+                movimiento = game.moveTableauToTableau(fuenteIdx, indice, cartaFuente);
+                System.out.println("Resultado moveTableauToTableau: " + movimiento);
+
+            } else if (origen >= 10 && origen <= 13) {
+
+                var srcDeck = game.getTableau().get(fuenteIdx);
+                CartaInglesa ultima = srcDeck.getUltimaCarta();
+                if (ultima == cartaFuente) {
+                    movimiento = game.moveTableauToFoundation(fuenteIdx, indice - 10);
+                } else {
+                    movimiento = false;
+                }
+            }
+        }
+
+        cartaSeleccionada.setStyle("");
+        cartaSeleccionada = null;
+        origenSeleccionado = -1;
+        indiceOrigenSeleccionado = -1;
+
+        if (movimiento) {
+            actualizarVista();
+            if (game.isGameOver()) {
+                mostrarGameOver(false);
+            }
+        }
+    });
+}
+    private void mostrarGameOver(boolean quit) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText(null);
+        if (quit) {
+            alert.setContentText("Perdiste :C");
+        }else {
+            alert.setContentText("Ganaste!");
+        }
+        alert.showAndWait();
     }
-
-
 
     private void actualizarVista() {
         // limpiar contenedores
@@ -190,7 +198,7 @@ public class Controller {
         int x = 0;
         for (CartaInglesa carta : visibles) {
             ImageView iv = crearImagenDeCarta(carta);
-            configurarClickCarta(iv, 0, -1, carta);
+            selectCarta(iv, 0, -1, carta);
 
             iv.setLayoutX(x);
             wastePane.getChildren().add(iv);
@@ -212,7 +220,8 @@ public class Controller {
             iv.setFitHeight(120);
         }
 
-        configurarClickCarta(iv, 10 + idx, idx, foundation.getUltimaCarta());
+        selectCarta(iv, 10 + idx, 10 + idx, foundation.getUltimaCarta());
+
 
         pane.getChildren().add(iv);
     }
@@ -251,11 +260,10 @@ public class Controller {
             pane.getChildren().add(slotVacio);
 
         } else {
-            // --- Mostrar las cartas ---
             int y = 0;
             for (CartaInglesa c : cartas) {
                 ImageView iv = crearImagenDeCarta(c);
-                configurarClickCarta(iv, 1, idx, c); // misma lógica de clicks
+                selectCarta(iv, 1, idx, c); // misma lógica de clicks
 
                 iv.setLayoutY(y);
                 pane.getChildren().add(iv);
@@ -268,7 +276,7 @@ public class Controller {
 
 
     private ImageView crearImagenDeCarta(CartaInglesa carta) {
-        String nombreImg = "back.png"; // fallback por defecto
+        String nombreImg = "back.png";
 
         try {
             if (carta.isFaceup()) {
@@ -277,7 +285,6 @@ public class Controller {
 
             var stream = getClass().getResourceAsStream("/cartas/" + nombreImg);
             if (stream == null) {
-                System.out.println("No se encontró la imagen: " + nombreImg + ", usando back.png");
                 stream = getClass().getResourceAsStream("/cartas/back.png");
             }
 
@@ -287,8 +294,7 @@ public class Controller {
             return iv;
 
         } catch (Exception e) {
-            System.out.println("⚠ Error al crear ImageView de la carta: " + carta);
-            var fallbackStream = getClass().getResourceAsStream("/cartas/back.png");
+           var fallbackStream = getClass().getResourceAsStream("/cartas/back.png");
             ImageView iv = new ImageView(new Image(fallbackStream));
             iv.setFitWidth(80);
             iv.setFitHeight(120);
@@ -300,8 +306,8 @@ public class Controller {
         int valor = carta.getValor();
 
         if (valor < 1 || valor > 13) {
-            System.out.println("⚠ Valor de carta inválido: " + valor + " (" + carta.getPalo() + ")");
-            valor = 1; // fallback
+            System.out.println("Valor de carta inválido: " + valor + " (" + carta.getPalo() + ")");
+            valor = 1;
         }
 
         String palo;

@@ -38,17 +38,12 @@ public class SolitaireGame {
         }
     }
 
-    // ----------------- GETTERS -----------------
     public ArrayList<TableauDeck> getTableau() { return tableau; }
     public ArrayList<FoundationDeck> getFoundations() { return foundation; }
     public DrawPile getDrawPile() { return drawPile; }
     public WastePile getWastePile() { return wastePile; }
     public FoundationDeck getLastFoundationUpdated() { return lastFoundationUpdated; }
 
-    // ----------------- MOVIMIENTOS -----------------
-    /*public void drawCards() {
-        wastePile.addCartas(drawPile.retirarCartas());
-    }*/
 
     public void drawCards() {
         ArrayList<CartaInglesa> cards = drawPile.retirarCartas();
@@ -156,9 +151,11 @@ public class SolitaireGame {
     }
 
     public boolean isGameOver() {
+
         for (FoundationDeck f : foundation) {
             if (f.estaVacio() || f.getUltimaCarta().getValor() != 13) return false;
         }
+
         return true;
     }
 
