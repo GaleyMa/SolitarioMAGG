@@ -39,7 +39,13 @@ public class SolitaireGame {
     }
 
     public ArrayList<TableauDeck> getTableau() { return tableau; }
+    public TableauDeck getTableau(int i){
+        return tableau.get(i);
+    }
     public ArrayList<FoundationDeck> getFoundations() { return foundation; }
+    public FoundationDeck getFoundation(int i){
+        return foundation.get(i-1);
+    }
     public DrawPile getDrawPile() { return drawPile; }
     public WastePile getWastePile() { return wastePile; }
     public FoundationDeck getLastFoundationUpdated() { return lastFoundationUpdated; }

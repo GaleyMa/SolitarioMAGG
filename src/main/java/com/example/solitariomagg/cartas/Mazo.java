@@ -20,6 +20,7 @@ public class Mazo {
      * Obtiene todas las cartas del mazo.
      * @return
      */
+
     public ArrayList<CartaInglesa> getCartas() {
         return cartas;
     }

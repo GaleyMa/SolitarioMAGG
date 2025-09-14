@@ -4,14 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="Final &#10;c.80">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" afterDir="false" />
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="Agrego clase pila al proyecto">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/CartaGrafica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/FoundationGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/TableauGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/TableroGrafico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/WasteGrafico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/cartas/Mazo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/cartas/Mazo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
@@ -47,12 +60,19 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -91,7 +111,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Pilas",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -149,7 +169,9 @@
       <workItem from="1757565822320" duration="9541000" />
       <workItem from="1757605351990" duration="16000" />
       <workItem from="1757605692356" duration="3188000" />
-      <workItem from="1757610107496" duration="580000" />
+      <workItem from="1757610107496" duration="1407000" />
+      <workItem from="1757614599440" duration="367000" />
+      <workItem from="1757879745099" duration="5584000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <option name="closed" value="true" />
@@ -191,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757609893264</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Agrego clase pila al proyecto">
+      <option name="closed" value="true" />
+      <created>1757610778489</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757610778489</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +254,8 @@
     <MESSAGE value="!" />
     <MESSAGE value="ya funciona" />
     <MESSAGE value="Final &#10;c.80" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final &#10;c.80" />
+    <MESSAGE value="Agrego clase pila al proyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrego clase pila al proyecto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -233,6 +264,11 @@
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
