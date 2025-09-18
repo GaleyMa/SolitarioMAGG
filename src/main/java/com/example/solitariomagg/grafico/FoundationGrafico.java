@@ -1,4 +1,3 @@
-
 package com.example.solitariomagg.grafico;
 
 import com.example.solitariomagg.Controller;
@@ -10,32 +9,40 @@ import javafx.scene.layout.Pane;
 
 import java.util.Objects;
 
-public class FoundationGrafico extends Pane {
+public class FoundationGrafico {
     private final FoundationDeck modelo;
+    private final Pane contenedor;
     private final Controller controller;
+    private final int indice;
 
-    public FoundationGrafico(FoundationDeck modelo, Controller controller) {
+    public FoundationGrafico(FoundationDeck modelo, Pane contenedor, Controller controller, int indice) {
         this.modelo = modelo;
+        this.contenedor = contenedor;
         this.controller = controller;
-        setPrefSize(80, 120);
+        this.indice = indice;
     }
 
     public void actualizar() {
-        getChildren().clear();
+        contenedor.getChildren().clear();
 
         CartaInglesa carta = modelo.getUltimaCarta();
-        if (carta != null) {
-            CartaGrafica c = new CartaGrafica(carta, controller);
-            getChildren().add(c);
-        } else {
-            // fundación vacía → mostrar un "slot"
-            Image slotImg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/back.png")));
-            ImageView slot = new ImageView(slotImg);
+        if (carta == null) {
+            Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/back.png")));
+            ImageView slot = new ImageView(img);
             slot.setFitWidth(80);
             slot.setFitHeight(120);
             slot.setOpacity(0.3);
-            getChildren().add(slot);
+
+            slot.setOnMouseClicked(e -> controller.intentarMoverACasillaVaciaFoundation(indice));
+            contenedor.getChildren().add(slot);
+        } else {
+            CartaGrafica cg = new CartaGrafica(carta, OrigenCarta.FOUNDATION, indice, controller);
+            contenedor.getChildren().add(cg);
         }
+    }
+
+    public boolean contieneCarta(CartaGrafica cg) {
+        return modelo.getUltimaCarta() == cg.getCarta();
     }
 }
 

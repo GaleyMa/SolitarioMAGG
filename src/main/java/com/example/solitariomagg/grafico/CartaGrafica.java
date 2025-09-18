@@ -5,94 +5,54 @@ import com.example.solitariomagg.cartas.CartaInglesa;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public class CartaGrafica extends ImageView {
-
     private final CartaInglesa carta;
-    private final Controller controller;
-    private OrigenCarta ubicacion;
+    private OrigenCarta origen;
+    private int indiceMazo; // índice del tableau o foundation
 
-    // Referencias opcionales a contenedores
-    private TableauGrafico contenedorTableau;
-    private FoundationGrafico contenedorFoundation;
-
-    public CartaGrafica(CartaInglesa carta, Controller controller) {
+    public CartaGrafica(CartaInglesa carta, OrigenCarta origen, int indiceMazo, Controller controller) {
         this.carta = carta;
-        this.controller = controller;
-        this.ubicacion = OrigenCarta.TABLEAU; // valor por defecto
+        this.origen = origen;
+        this.indiceMazo = indiceMazo;
 
-        // Tamaño estándar
-        setFitWidth(90);
-        setFitHeight(120);
+        String nombreImg = carta.isFaceup()
+                ? generarNombreArchivo() + ".png"
+                : "back.png";
 
-        // Mostrar la carta
-        actualizarImagen();
+        Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/" + nombreImg)));
+        setImage(img);
+        setFitWidth(80);
+        setPreserveRatio(true);
 
-        // Manejo de clics
         setOnMouseClicked(e -> controller.manejarClickCarta(carta, this));
     }
-    private String generarNombreArchivo(CartaInglesa carta) {
+
+    private String generarNombreArchivo() {
         int valor = carta.getValor();
         String palo;
         switch (carta.getPalo()) {
-            case CORAZON: palo = "c"; break;
-            case PICA: palo = "p"; break;
-            case DIAMANTE: palo = "d"; break;
-            case TREBOL: palo = "t"; break;
-            default: palo = "x"; break;
+            case CORAZON -> palo = "c";
+            case PICA -> palo = "p";
+            case DIAMANTE -> palo = "d";
+            case TREBOL -> palo = "t";
+            default -> palo = "x";
         }
-
-        String valorStr;
-        switch (valor) {
-            case 1: valorStr = "a"; break;
-            case 11: valorStr = "j"; break;
-            case 12: valorStr = "q"; break;
-            case 13: valorStr = "k"; break;
-            default: valorStr = String.valueOf(valor); break;
-        }
-
+        String valorStr = switch (valor) {
+            case 1 -> "a";
+            case 11 -> "j";
+            case 12 -> "q";
+            case 13 -> "k";
+            default -> String.valueOf(valor);
+        };
         return palo + valorStr;
     }
-    public void actualizarImagen() {
-        String ruta = carta.isFaceup() ? generarNombreArchivo(carta) : "/images/back.png";
-        setImage(new Image(getClass().getResourceAsStream(ruta)));
-    }
 
-    // 🔹 Getters y setters
-    public CartaInglesa getCarta() {
-        return carta;
-    }
-
-    public OrigenCarta getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(OrigenCarta ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public TableauGrafico getContenedorTableau() {
-        return contenedorTableau;
-    }
-
-    public void setContenedorTableau(TableauGrafico contenedorTableau) {
-        this.contenedorTableau = contenedorTableau;
-        this.ubicacion = OrigenCarta.TABLEAU;
-    }
-
-    public FoundationGrafico getContenedorFoundation() {
-        return contenedorFoundation;
-    }
-
-    public void setContenedorFoundation(FoundationGrafico contenedorFoundation) {
-        this.contenedorFoundation = contenedorFoundation;
-        this.ubicacion = OrigenCarta.FOUNDATION;
-    }
-
-    public void setUbicacionWaste() {
-        this.ubicacion = OrigenCarta.WASTE;
-    }
+    public CartaInglesa getCarta() { return carta; }
+    public OrigenCarta getOrigen() { return origen; }
+    public int getIndiceMazo() { return indiceMazo; }
 }
-
 
 /*package com.example.solitariomagg.grafico;
 

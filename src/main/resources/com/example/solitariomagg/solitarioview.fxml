@@ -23,7 +23,7 @@
         <ImageView fx:id="drawPile" fitHeight="120" fitWidth="80" layoutX="30" layoutY="30" />
 
         <!-- Waste pile (última carta) -->
-        <Pane fx:id="wastePane" layoutX="130" layoutY="30" prefHeight="120" prefWidth="80" style="-fx-border-color: black; -fx-background-color: lightgray;" />
+        <Pane fx:id="wastePane" layoutX="130" layoutY="30" prefHeight="120" prefWidth="80" />
 
         <!-- Contenedor de 3 cartas visibles del waste -->
         <HBox fx:id="wasteContainer" layoutX="230" layoutY="30" prefHeight="120" prefWidth="240.0" spacing="15" />
@@ -32,10 +32,10 @@
         <Pane fx:id="wasteBackPane" layoutX="37.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black; -fx-background-color: darkgray;" />
 
         <!-- Foundations -->
-        <Pane fx:id="foundation1" layoutX="527.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation2" layoutX="626.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation3" layoutX="727.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation4" layoutX="822.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation1" layoutX="527.0" layoutY="30.0" prefHeight="120" prefWidth="80" />
+        <Pane fx:id="foundation2" layoutX="626.0" layoutY="30.0" prefHeight="120" prefWidth="80" />
+        <Pane fx:id="foundation3" layoutX="727.0" layoutY="30.0" prefHeight="120" prefWidth="80" />
+        <Pane fx:id="foundation4" layoutX="822.0" layoutY="30.0" prefHeight="120" prefWidth="80" />
 
         <!-- Tableaus (7 columnas) -->
         <Pane fx:id="tableau1" layoutX="30" layoutY="200" prefHeight="400" prefWidth="80" />

@@ -30,6 +30,17 @@ public class SolitaireGame {
             t.inicializar(drawPile.getCartas(i + 1));
             tableau.add(t);
         }
+        for (TableauDeck deck : tableau) {
+            for (int i = 0; i < deck.getCards().size(); i++) {
+                CartaInglesa carta = deck.getCards().get(i);
+                if (i == deck.getCards().size() - 1) {
+                    carta.makeFaceUp();       // última carta boca arriba
+                } else {
+                    carta.makeFaceDown();     // las demás boca abajo
+                }
+            }
+        }
+
     }
 
     private void createFoundations() {

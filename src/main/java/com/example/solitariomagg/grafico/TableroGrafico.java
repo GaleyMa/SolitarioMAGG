@@ -1,36 +1,50 @@
 package com.example.solitariomagg.grafico;
 
-import java.util.List;
+import com.example.solitariomagg.Controller;
+import com.example.solitariomagg.Solitaire.SolitaireGame;
+import javafx.scene.layout.Pane;
+
+import java.util.ArrayList;
 
 public class TableroGrafico {
+    private final ArrayList<TableauGrafico> tableaus;
+    private final ArrayList<FoundationGrafico> foundations;
     private final WasteGrafico wasteGrafico;
-    private final List<TableauGrafico> tableauGraficos;
-    private final List<FoundationGrafico> foundationGraficos;
 
-    public TableroGrafico(WasteGrafico wasteGrafico,
-                          List<TableauGrafico> tableauGraficos,
-                          List<FoundationGrafico> foundationGraficos) {
-        this.wasteGrafico = wasteGrafico;
-        this.tableauGraficos = tableauGraficos;
-        this.foundationGraficos = foundationGraficos;
-    }
+    public TableroGrafico(SolitaireGame game,
+                          ArrayList<Pane> tableauPanes,
+                          ArrayList<Pane> foundationPanes,
+                          Pane wastePane,
+                          Pane wasteBackPane,
+                          Controller controller) {
 
-    public WasteGrafico getWasteGrafico() {
-        return wasteGrafico;
-    }
+        tableaus = new ArrayList<>();
+        for (int i = 0; i < tableauPanes.size(); i++)
+            tableaus.add(new TableauGrafico(game.getTableau().get(i), tableauPanes.get(i), controller, i));
 
-    public List<TableauGrafico> getTableauGraficos() {
-        return tableauGraficos;
-    }
+        foundations = new ArrayList<>();
+        for (int i = 0; i < foundationPanes.size(); i++)
+            foundations.add(new FoundationGrafico(game.getFoundation(i), foundationPanes.get(i), controller, i));
 
-    public List<FoundationGrafico> getFoundationGraficos() {
-        return foundationGraficos;
+        wasteGrafico = new WasteGrafico(game.getWastePile(), wastePane, wasteBackPane, controller);
     }
 
     public void actualizar() {
+        tableaus.forEach(TableauGrafico::actualizar);
+        foundations.forEach(FoundationGrafico::actualizar);
         wasteGrafico.actualizar();
-        for (FoundationGrafico f : foundationGraficos) f.actualizar();
-        for (TableauGrafico t : tableauGraficos) t.actualizar();
+    }
+
+    public int getIndiceTableau(CartaGrafica cg) {
+        for (int i = 0; i < tableaus.size(); i++)
+            if (tableaus.get(i).contieneCarta(cg)) return i;
+        return -1;
+    }
+
+    public int getIndiceFoundation(CartaGrafica cg) {
+        for (int i = 0; i < foundations.size(); i++)
+            if (foundations.get(i).contieneCarta(cg)) return i;
+        return -1;
     }
 }
 

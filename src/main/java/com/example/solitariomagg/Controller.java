@@ -1,10 +1,11 @@
 package com.example.solitariomagg;
 
-import com.example.solitariomagg.Solitaire.SolitaireGame;
+import com.example.solitariomagg.Solitaire.*;
 import com.example.solitariomagg.grafico.*;
 import com.example.solitariomagg.cartas.CartaInglesa;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
 
@@ -17,127 +18,132 @@ public class Controller {
 
     private CartaGrafica cartaSeleccionada;
 
-    // UI bindings
-    @FXML private Pane wastePane;
-    @FXML private Pane foundation1;
-    @FXML private Pane foundation2;
-    @FXML private Pane foundation3;
-    @FXML private Pane foundation4;
+    @FXML private Pane wastePane, wasteBackPane;
+    @FXML private Pane tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7;
+    @FXML private Pane foundation1, foundation2, foundation3, foundation4;
 
-    @FXML private Pane tableau1;
-    @FXML private Pane tableau2;
-    @FXML private Pane tableau3;
-    @FXML private Pane tableau4;
-    @FXML private Pane tableau5;
-    @FXML private Pane tableau6;
-    @FXML private Pane tableau7;
+    private ArrayList<Pane> tableauPanes, foundationPanes;
 
     @FXML
     public void initialize() {
-        // Crear modelo
+        tableauPanes = new ArrayList<>() {{
+            add(tableau1); add(tableau2); add(tableau3);
+            add(tableau4); add(tableau5); add(tableau6); add(tableau7);
+        }};
+        foundationPanes = new ArrayList<>() {{
+            add(foundation1); add(foundation2); add(foundation3); add(foundation4);
+        }};
         game = new SolitaireGame();
-
-        // Crear gráficos
-        WasteGrafico wasteGrafico = new WasteGrafico(game.getWastePile(), this);
-        wastePane.getChildren().add(wasteGrafico);
-
-        ArrayList<FoundationGrafico> foundationGraficos = new ArrayList<>();
-        foundationGraficos.add(new FoundationGrafico(game.getFoundations().get(0), this));
-        foundationGraficos.add(new FoundationGrafico(game.getFoundations().get(1), this));
-        foundationGraficos.add(new FoundationGrafico(game.getFoundations().get(2), this));
-        foundationGraficos.add(new FoundationGrafico(game.getFoundations().get(3), this));
-
-        foundation1.getChildren().add(foundationGraficos.get(0));
-        foundation2.getChildren().add(foundationGraficos.get(1));
-        foundation3.getChildren().add(foundationGraficos.get(2));
-        foundation4.getChildren().add(foundationGraficos.get(3));
-
-        ArrayList<TableauGrafico> tableauGraficos = new ArrayList<>();
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(0), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(1), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(2), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(3), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(4), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(5), this));
-        tableauGraficos.add(new TableauGrafico(game.getTableau().get(6), this));
-
-        tableau1.getChildren().add(tableauGraficos.get(0));
-        tableau2.getChildren().add(tableauGraficos.get(1));
-        tableau3.getChildren().add(tableauGraficos.get(2));
-        tableau4.getChildren().add(tableauGraficos.get(3));
-        tableau5.getChildren().add(tableauGraficos.get(4));
-        tableau6.getChildren().add(tableauGraficos.get(5));
-        tableau7.getChildren().add(tableauGraficos.get(6));
-
-        // Crear tablero gráfico con todo
-        tablero = new TableroGrafico(wasteGrafico, tableauGraficos, foundationGraficos);
-
-        // Refrescar vista inicial
-        tablero.actualizar();
+        tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);
+        actualizarVista();
     }
 
-    public void actualizarVista() {
-        tablero.actualizar();
-    }
+    public void actualizarVista() { tablero.actualizar(); }
 
-    public void manejarClickCarta(CartaInglesa carta, CartaGrafica vista) {
+    public void manejarClickCarta(CartaInglesa carta, ImageView vista) {
+        CartaGrafica cg = (CartaGrafica) vista;
         if (!carta.isFaceup()) return;
 
         if (cartaSeleccionada == null) {
-            cartaSeleccionada = vista;
-            cartaSeleccionada.setStyle("-fx-effect: dropshadow(one-pass-box, grey, 20, 0.5, 0, 0);");
-        } else {
-            boolean movimiento = false;
+            cartaSeleccionada = cg;
+            cg.setStyle("-fx-effect: dropshadow(one-pass-box, grey, 20, 0.5, 0, 0);");
+            return;
+        }
 
-            OrigenCarta origen = cartaSeleccionada.getUbicacion();
-            OrigenCarta destino = vista.getUbicacion();
+        boolean movimiento = false;
 
-            if (origen == OrigenCarta.WASTE) {
-                if (destino == OrigenCarta.TABLEAU) {
-                    int idx = tablero.getTableauGraficos().indexOf(vista.getContenedorTableau());
-                    movimiento = game.moveWasteToTableau(idx);
-                } else if (destino == OrigenCarta.FOUNDATION) {
-                    int idx = tablero.getFoundationGraficos().indexOf(vista.getContenedorFoundation());
-                    movimiento = game.moveWasteToFoundation(idx);
-                }
-            } else if (origen == OrigenCarta.TABLEAU) {
-                int fuenteIdx = tablero.getTableauGraficos().indexOf(cartaSeleccionada.getContenedorTableau());
-                if (destino == OrigenCarta.TABLEAU) {
-                    int destinoIdx = tablero.getTableauGraficos().indexOf(vista.getContenedorTableau());
-                    movimiento = game.moveTableauToTableau(fuenteIdx, destinoIdx, cartaSeleccionada.getCarta());
-                } else if (destino == OrigenCarta.FOUNDATION) {
-                    int destinoIdx = tablero.getFoundationGraficos().indexOf(vista.getContenedorFoundation());
-                    movimiento = game.moveTableauToFoundation(fuenteIdx, destinoIdx);
-                }
-            }
+        if (cartaSeleccionada.getOrigen() == OrigenCarta.WASTE) {
+            if (cg.getOrigen() == OrigenCarta.TABLEAU)
+                movimiento = game.moveWasteToTableau(cg.getIndiceMazo());
+            else if (cg.getOrigen() == OrigenCarta.FOUNDATION)
+                movimiento = game.moveWasteToFoundation(cg.getIndiceMazo());
 
-            cartaSeleccionada.setStyle("");
-            cartaSeleccionada = null;
+        } else if (cartaSeleccionada.getOrigen() == OrigenCarta.TABLEAU) {
+            int fuente = cartaSeleccionada.getIndiceMazo();
+            if (cg.getOrigen() == OrigenCarta.TABLEAU)
+                movimiento = game.moveTableauToTableau(fuente, cg.getIndiceMazo(), cartaSeleccionada.getCarta());
+            else if (cg.getOrigen() == OrigenCarta.FOUNDATION
+                    && cartaSeleccionada.getCarta() == game.getTableau().get(fuente).getUltimaCarta())
+                movimiento = game.moveTableauToFoundation(fuente, cg.getIndiceMazo());
+        }
 
-            if (movimiento) {
-                actualizarVista();
-                if (game.isGameOver()) mostrarGameOver(false);
-            }
+        cartaSeleccionada.setStyle("");
+        cartaSeleccionada = null;
+
+        if (movimiento) {
+            actualizarVista();
+            if (game.isGameOver()) mostrarGameOver(false);
         }
     }
 
-    public void reinicioButtonClicked(ActionEvent event) {
-        mostrarGameOver(true);
-        reiniciarJuego();
+    public void manejarWaste() {
+        boolean accion = game.drawOrCycle(); // este ya decide si roba o recicla
+        if (accion) {
+            actualizarVista();  // para que se redibuje el waste
+        }
     }
+
 
     private void reiniciarJuego() {
         game = new SolitaireGame();
-        initialize();
+        tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);
+        cartaSeleccionada = null;
+        actualizarVista();
     }
+
+    public void reinicioButtonClicked(ActionEvent e) { reiniciarJuego(); }
 
     private void mostrarGameOver(boolean quit) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Game Over");
         alert.setHeaderText(null);
-        alert.setContentText(quit ? "Perdiste :C" : "¡Ganaste!");
+        alert.setContentText(quit ? "Perdiste :C" : "Ganaste!");
         alert.showAndWait();
     }
+    @FXML
+    private void creditosButtonClicked(ActionEvent event) {
+        mostrarCreditos();
+    }
+
+    private void mostrarCreditos() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Créditos");
+        alert.setHeaderText("Elaborado por: Mayra García Garrido");
+        alert.setContentText("Con base en proyecto 'Solitario' elaborado por Prof. Cecilia Curlango\nRepositorio: https://github.com/GaleyMa/SolitarioMAGG#");
+        alert.showAndWait();
+    }
+    public void intentarMoverACasillaVaciaTableau(int destinoIdx) {
+        if (cartaSeleccionada != null) {
+            boolean mov = false;
+            if (cartaSeleccionada.getOrigen() == OrigenCarta.WASTE) {
+                mov = game.moveWasteToTableau(destinoIdx);
+            } else if (cartaSeleccionada.getOrigen() == OrigenCarta.TABLEAU) {
+                int fuenteIdx = cartaSeleccionada.getIndiceMazo();
+                mov = game.moveTableauToTableau(fuenteIdx, destinoIdx, cartaSeleccionada.getCarta());
+            }
+            cartaSeleccionada.setStyle("");
+            cartaSeleccionada = null;
+            if (mov) actualizarVista();
+        }
+    }
+
+    public void intentarMoverACasillaVaciaFoundation(int destinoIdx) {
+        if (cartaSeleccionada != null) {
+            boolean mov = false;
+            if (cartaSeleccionada.getOrigen() == OrigenCarta.WASTE) {
+                mov = game.moveWasteToFoundation(destinoIdx);
+            } else if (cartaSeleccionada.getOrigen() == OrigenCarta.TABLEAU) {
+                int fuenteIdx = cartaSeleccionada.getIndiceMazo();
+                if (cartaSeleccionada.getCarta() == game.getTableau().get(fuenteIdx).getUltimaCarta()) {
+                    mov = game.moveTableauToFoundation(fuenteIdx, destinoIdx);
+                }
+            }
+            cartaSeleccionada.setStyle("");
+            cartaSeleccionada = null;
+            if (mov) actualizarVista();
+        }
+    }
+
 }
 
 /*package com.example.solitariomagg;
