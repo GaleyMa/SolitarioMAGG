@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @version 2025
  */
 public class FoundationDeck {
-    Palo palo;
-    ArrayList<CartaInglesa> cartas = new ArrayList<>();
+    private Palo palo;
+    private ArrayList<CartaInglesa> cartas = new ArrayList<>();
 
     public FoundationDeck(Palo palo) {
         this.palo = palo;
@@ -64,7 +64,7 @@ public class FoundationDeck {
      *
      * @return la carta que removió, null si estaba vacio
      */
-    CartaInglesa removerUltimaCarta() {
+   public CartaInglesa removerUltimaCarta() {
         CartaInglesa ultimaCarta = null;
         if (!cartas.isEmpty()) {
             ultimaCarta = cartas.getLast();
@@ -104,5 +104,9 @@ public class FoundationDeck {
             ultimaCarta = cartas.getLast();
         }
         return ultimaCarta;
+    }
+
+    public ArrayList<CartaInglesa> getCartas() {
+        return cartas;
     }
 }

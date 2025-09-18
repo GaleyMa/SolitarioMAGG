@@ -32,19 +32,19 @@
         <Pane fx:id="wasteBackPane" layoutX="37.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black; -fx-background-color: darkgray;" />
 
         <!-- Foundations -->
-        <Pane fx:id="foundation0" layoutX="527.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation1" layoutX="626.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation2" layoutX="727.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
-        <Pane fx:id="foundation3" layoutX="822.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation1" layoutX="527.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation2" layoutX="626.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation3" layoutX="727.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
+        <Pane fx:id="foundation4" layoutX="822.0" layoutY="30.0" prefHeight="120" prefWidth="80" style="-fx-border-color: black;" />
 
         <!-- Tableaus (7 columnas) -->
-        <Pane fx:id="tableau0" layoutX="30" layoutY="200" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau1" layoutX="165.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau2" layoutX="297.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau3" layoutX="428.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau4" layoutX="558.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau5" layoutX="689.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
-        <Pane fx:id="tableau6" layoutX="819.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau1" layoutX="30" layoutY="200" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau2" layoutX="165.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau3" layoutX="297.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau4" layoutX="428.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau5" layoutX="558.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau6" layoutX="689.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
+        <Pane fx:id="tableau7" layoutX="819.0" layoutY="200.0" prefHeight="400" prefWidth="80" />
 
     </AnchorPane>
 </VBox>

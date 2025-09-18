@@ -44,7 +44,7 @@ public class SolitaireGame {
     }
     public ArrayList<FoundationDeck> getFoundations() { return foundation; }
     public FoundationDeck getFoundation(int i){
-        return foundation.get(i-1);
+        return foundation.get(i);
     }
     public DrawPile getDrawPile() { return drawPile; }
     public WastePile getWastePile() { return wastePile; }
