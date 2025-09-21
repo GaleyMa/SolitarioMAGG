@@ -49,7 +49,6 @@ public class WasteGrafico {
         img.setFitWidth(80);
         img.setFitHeight(120);
         wasteBackPane.getChildren().clear();
-        wasteBackPane.getChildren().add(img);
-        wasteBackPane.setOnMouseClicked(e -> { controller.manejarWaste();});
+        wasteBackPane.getChildren().add(img);        wasteBackPane.setOnMouseClicked(e -> { controller.manejarWaste();});
     }
 }

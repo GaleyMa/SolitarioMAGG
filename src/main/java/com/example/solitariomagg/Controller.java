@@ -15,7 +15,6 @@ public class Controller {
 
     private SolitaireGame game;
     private TableroGrafico tablero;
-
     private CartaGrafica cartaSeleccionada;
 
     @FXML private Pane wastePane, wasteBackPane;
@@ -83,35 +82,6 @@ public class Controller {
         }
     }
 
-
-    private void reiniciarJuego() {
-        game = new SolitaireGame();
-        tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);
-        cartaSeleccionada = null;
-        actualizarVista();
-    }
-
-    public void reinicioButtonClicked(ActionEvent e) { reiniciarJuego(); }
-
-    private void mostrarGameOver(boolean quit) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Game Over");
-        alert.setHeaderText(null);
-        alert.setContentText(quit ? "Perdiste :C" : "Ganaste!");
-        alert.showAndWait();
-    }
-    @FXML
-    private void creditosButtonClicked(ActionEvent event) {
-        mostrarCreditos();
-    }
-
-    private void mostrarCreditos() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Créditos");
-        alert.setHeaderText("Elaborado por: Mayra García Garrido");
-        alert.setContentText("Con base en proyecto 'Solitario' elaborado por Prof. Cecilia Curlango\nRepositorio: https://github.com/GaleyMa/SolitarioMAGG#");
-        alert.showAndWait();
-    }
     public void intentarMoverACasillaVaciaTableau(int destinoIdx) {
         if (cartaSeleccionada != null) {
             boolean mov = false;
@@ -144,4 +114,36 @@ public class Controller {
         }
     }
 
+    private void reiniciarJuego() {
+        game = new SolitaireGame();
+        tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);
+        cartaSeleccionada = null;
+        actualizarVista();
+    }
+
+    public void reinicioButtonClicked(ActionEvent e) {
+        mostrarGameOver(true);
+        reiniciarJuego();
+    }
+
+    private void mostrarGameOver(boolean quit) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText(null);
+        alert.setContentText(quit ? "Perdiste :C" : "Ganaste!");
+        alert.showAndWait();
+        if (!quit) mostrarCreditos();
+    }
+    @FXML
+    private void creditosButtonClicked(ActionEvent event) {
+        mostrarCreditos();
+    }
+
+    private void mostrarCreditos() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Créditos");
+        alert.setHeaderText("Elaborado por: Mayra García Garrido");
+        alert.setContentText("Con base en proyecto 'Solitario' elaborado por Prof. Cecilia Curlango");
+        alert.showAndWait();
+    }
 }
