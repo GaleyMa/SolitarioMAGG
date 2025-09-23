@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="final ahorasi">
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="Ya funciona">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/WasteGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/WasteGrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Pilas" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -173,7 +172,7 @@
       <workItem from="1757614599440" duration="367000" />
       <workItem from="1757879745099" duration="30711000" />
       <workItem from="1758178531544" duration="7614000" />
-      <workItem from="1758347122890" duration="12547000" />
+      <workItem from="1758347122890" duration="6889000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <option name="closed" value="true" />
@@ -239,15 +238,7 @@
       <option name="project" value="LOCAL" />
       <updated>1758181954584</updated>
     </task>
-    <task id="LOCAL-00009" summary="final ahorasi">
-      <option name="closed" value="true" />
-      <created>1758410978659</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1758410978659</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,8 +274,7 @@
     <MESSAGE value="Agrego clase pila al proyecto" />
     <MESSAGE value="Creación de clases gráficas" />
     <MESSAGE value="aun no funciona" />
-    <MESSAGE value="final ahorasi" />
-    <option name="LAST_COMMIT_MESSAGE" value="final ahorasi" />
+    <option name="LAST_COMMIT_MESSAGE" value="aun no funciona" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
