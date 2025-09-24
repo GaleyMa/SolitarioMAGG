@@ -3,7 +3,6 @@ package com.example.solitariomagg.Solitaire;
 import com.example.solitariomagg.cartas.CartaInglesa;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Modela un montículo donde se ponen las cartas
@@ -34,21 +33,6 @@ public class TableauDeck {
             cartas.subList(index, cartas.size()).clear();
         }
         return removed;
-    }
-
-
-
-    public CartaInglesa viewCardStartingAt(int value) {
-        CartaInglesa cartaConElValorDeseado = null;
-        for (CartaInglesa next : cartas) {
-            if (next.isFaceup()) {
-                if (next.getValor() <= value) {
-                    cartaConElValorDeseado = next;
-                    break;
-                }
-            }
-        }
-        return cartaConElValorDeseado;
     }
 
     /**
@@ -126,9 +110,7 @@ public class TableauDeck {
 
         if (!cartasRecibidas.isEmpty()) {
             CartaInglesa primera = cartasRecibidas.getFirst();
-            // si la primera carta del bloque recibido se puede agregar al tableau actual
             if (sePuedeAgregarCarta(primera)) {
-                // se agrega todo el bloque
                 cartas.addAll(cartasRecibidas);
                 resultado = true;
             }
@@ -158,8 +140,6 @@ public class TableauDeck {
             return !ultima.getColor().equals(cartaInicialDePrueba.getColor()) &&
                     ultima.getValor() == cartaInicialDePrueba.getValor() + 1;
         } else {
-            // Tableau vacío → solo reyes
-            System.out.println("Debug: Tableau vacío, carta=" + cartaInicialDePrueba);
             return cartaInicialDePrueba.getValor() == 13;
         }
     }
@@ -169,25 +149,9 @@ public class TableauDeck {
      * Obtiene la última carta del Tableau sin removerla.
      * @return última carta, null si no hay cartas
      */
-    public CartaInglesa getUltimaCarta() {
-        CartaInglesa ultimaCarta = null;
-        if (!cartas.isEmpty()) {
-            ultimaCarta = cartas.getLast();
-        }
-        return ultimaCarta;
-    }
-
-    public ArrayList<CartaInglesa> getUltimasCartas(int n) {
-        ArrayList<CartaInglesa> ultimas = new ArrayList<>();
-        int start = Math.max(cartas.size() - n, 0);
-        for (int i = start; i < cartas.size(); i++) {
-            ultimas.add(cartas.get(i));
-        }
-        return ultimas;
-    }
-
 
     public ArrayList<CartaInglesa> getCards() {
+
         return cartas;
     }
 }

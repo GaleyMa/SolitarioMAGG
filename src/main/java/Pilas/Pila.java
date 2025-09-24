@@ -27,13 +27,19 @@ public class Pila<T> {
         }
         return dato;
     }
+    public T peek() {
+        if (pila_vacia()) {
+            System.out.println("\nPila vacía\n");
+            return null;
+        } else {
+            return pila[tope];
+        }
+    }
     public boolean pila_llena(){
-        if(tope==pila.length-1) return true;
-        else return false;
+        return (tope==pila.length-1) ;
     }
     public boolean pila_vacia(){
-        if(tope==-1) return true;
-        else return false;
+        return (tope==-1);
     }
 
 }

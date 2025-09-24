@@ -8,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
-import Pilas.Pila;
 
 import java.util.ArrayList;
 
@@ -63,7 +62,7 @@ public class Controller {
             if (cg.getOrigen() == OrigenCarta.TABLEAU)
                 movimiento = game.moveTableauToTableau(fuente, cg.getIndiceMazo(), cartaSeleccionada.getCarta());
             else if (cg.getOrigen() == OrigenCarta.FOUNDATION
-                    && cartaSeleccionada.getCarta() == game.getTableau().get(fuente).getUltimaCarta())
+                    && cartaSeleccionada.getCarta() == game.getTableau().get(fuente).verUltimaCarta())
                 movimiento = game.moveTableauToFoundation(fuente, cg.getIndiceMazo());
         }
 
@@ -105,7 +104,7 @@ public class Controller {
                 mov = game.moveWasteToFoundation(destinoIdx);
             } else if (cartaSeleccionada.getOrigen() == OrigenCarta.TABLEAU) {
                 int fuenteIdx = cartaSeleccionada.getIndiceMazo();
-                if (cartaSeleccionada.getCarta() == game.getTableau().get(fuenteIdx).getUltimaCarta()) {
+                if (cartaSeleccionada.getCarta() == game.getTableau().get(fuenteIdx).verUltimaCarta()) {
                     mov = game.moveTableauToFoundation(fuenteIdx, destinoIdx);
                 }
             }

@@ -1,29 +1,31 @@
 package com.example.solitariomagg.Solitaire;
 import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Palo;
-
+import Pilas.Pila;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
- * Modela un monículo donde se ponen las cartas
- * de un solo palo.
+ * Modela un montículo donde se ponen las cartas
+ * de un solo palo, usando Pila.
  *
- * @author Cecilia M. Curlango
+ * @author Mayra García.
  * @version 2025
  */
 public class FoundationDeck {
     private Palo palo;
-    private ArrayList<CartaInglesa> cartas = new ArrayList<>();
+    private Pila<CartaInglesa> cartas;
 
     public FoundationDeck(Palo palo) {
         this.palo = palo;
+        this.cartas = new Pila<>();
     }
 
     public FoundationDeck(CartaInglesa carta) {
-        palo = carta.getPalo();
-        // solo agrega la carta si es un A
+        this.cartas = new Pila<>();
         if (carta.getValorBajo() == 1) {
-            cartas.add(carta);
+            this.palo = carta.getPalo();
+            cartas.push(carta);
         }
     }
 
@@ -38,20 +40,17 @@ public class FoundationDeck {
     public boolean agregarCarta(CartaInglesa carta) {
         if (carta == null) return false;
 
-        if (cartas.isEmpty()) {
-            // Si está vacía, solo entra un As y define el palo de esta foundation
+        if (cartas.pila_vacia()) {
             if (carta.getValorBajo() == 1) {
-                palo = carta.getPalo();   // ⚡ aquí se fija el palo
-                cartas.add(carta);
+                palo = carta.getPalo();
+                cartas.push(carta);
                 return true;
             }
             return false;
         } else {
-            // Si no está vacía, debe coincidir palo y seguir secuencia
-            CartaInglesa ultimaCarta = cartas.getLast();
-            if (carta.tieneElMismoPalo(palo) &&
-                    carta.getValorBajo() == ultimaCarta.getValorBajo() + 1) {
-                cartas.add(carta);
+            CartaInglesa ultima = cartas.peek();
+            if (carta.tieneElMismoPalo(palo) &&  carta.getValorBajo() == ultima.getValorBajo() + 1) {
+                cartas.push(carta);
                 return true;
             }
             return false;
@@ -65,25 +64,19 @@ public class FoundationDeck {
      * @return la carta que removió, null si estaba vacio
      */
    public CartaInglesa removerUltimaCarta() {
-        CartaInglesa ultimaCarta = null;
-        if (!cartas.isEmpty()) {
-            ultimaCarta = cartas.getLast();
-            cartas.remove(ultimaCarta);
-        }
-        return ultimaCarta;
-    }
+       if (!cartas.pila_vacia()) {
+           return cartas.pop();
+       }
+       return null;
+   }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        if (cartas.isEmpty()) {
-            builder.append("---");
+        if (cartas.pila_vacia()) {
+            return "---";
         } else {
-            for (CartaInglesa carta : cartas) {
-                builder.append(carta.toString());
-            }
+            return getUltimaCarta().toString();
         }
-        return builder.toString();
     }
 
     /**
@@ -91,22 +84,30 @@ public class FoundationDeck {
      * @return true hay al menos una carta, false no hay cartas
      */
     public boolean estaVacio() {
-        return cartas.isEmpty();
+        return cartas.pila_vacia();
     }
-
     /**
      * Obtiene la última carta del Foundation sin removerla.
      * @return última carta, null si no hay cartas
      */
     public CartaInglesa getUltimaCarta() {
-        CartaInglesa ultimaCarta = null;
-        if (!cartas.isEmpty()) {
-            ultimaCarta = cartas.getLast();
+        if (!cartas.pila_vacia()) {
+            return cartas.peek();
         }
-        return ultimaCarta;
+        return null;
     }
 
     public ArrayList<CartaInglesa> getCartas() {
-        return cartas;
+        ArrayList<CartaInglesa> lista = new ArrayList<>();
+        Pila<CartaInglesa> aux = new Pila<>(13);
+        while (!estaVacio()) {
+            aux.push(cartas.peek());
+            lista.add(cartas.pop());
+        }
+        while (!aux.pila_vacia()){
+            cartas.push(aux.pop());
+        }
+        Collections.reverse(lista);
+        return lista;
     }
 }

@@ -3,9 +3,7 @@ package com.example.solitariomagg.Solitaire;
 import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Palo;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -121,7 +119,7 @@ public class SolitaireGame {
         // Verificamos si se puede colocar el bloque en destino
         if (destino.agregarBloqueDeCartas(bloque)) {
             if (!fuente.isEmpty()) {
-                fuente.getUltimaCarta().makeFaceUp();
+                fuente.verUltimaCarta().makeFaceUp();
             }
             return true;
         } else {

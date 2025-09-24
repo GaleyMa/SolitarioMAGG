@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="Ya funciona">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="importo la clase pilas a Controller.java">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/FoundationDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/FoundationDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/TableauDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/TableauDeck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +240,31 @@
       <option name="project" value="LOCAL" />
       <updated>1758181954584</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="!">
+      <option name="closed" value="true" />
+      <created>1758671984538</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1758671984538</updated>
+    </task>
+    <task id="LOCAL-00010" summary="!">
+      <option name="closed" value="true" />
+      <created>1758671992730</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1758671992730</updated>
+    </task>
+    <task id="LOCAL-00011" summary="importo la clase pilas a Controller.java">
+      <option name="closed" value="true" />
+      <created>1758672188413</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1758672188413</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,13 +294,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="!" />
     <MESSAGE value="ya funciona" />
     <MESSAGE value="Final &#10;c.80" />
     <MESSAGE value="Agrego clase pila al proyecto" />
     <MESSAGE value="Creación de clases gráficas" />
     <MESSAGE value="aun no funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="aun no funciona" />
+    <MESSAGE value="!" />
+    <MESSAGE value="importo la clase pilas a Controller.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="importo la clase pilas a Controller.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
