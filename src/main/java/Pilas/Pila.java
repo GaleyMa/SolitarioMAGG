@@ -42,5 +42,8 @@ public class Pila<T> {
         return (tope==-1);
     }
 
+    public int size() {
+        return tope;
+    }
 }
 

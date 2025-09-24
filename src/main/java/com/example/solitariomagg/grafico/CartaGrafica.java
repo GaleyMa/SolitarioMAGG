@@ -22,7 +22,7 @@ public class CartaGrafica extends ImageView {
 
         Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/" + nombreImg)));
         setImage(img);
-        setFitWidth(80);
+        setFitWidth(100);
         setPreserveRatio(true);
 
         setOnMouseClicked(e -> controller.seleccionarCarta(carta, this));

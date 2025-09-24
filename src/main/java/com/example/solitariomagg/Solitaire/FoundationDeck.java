@@ -18,7 +18,7 @@ public class FoundationDeck {
 
     public FoundationDeck(Palo palo) {
         this.palo = palo;
-        this.cartas = new Pila<>();
+        this.cartas = new Pila<>(13);
     }
 
     public FoundationDeck(CartaInglesa carta) {
