@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
+import Pilas.Pila;
 
 import java.util.ArrayList;
 
