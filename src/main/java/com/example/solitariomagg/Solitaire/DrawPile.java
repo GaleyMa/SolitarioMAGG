@@ -1,23 +1,29 @@
 package com.example.solitariomagg.Solitaire;
 import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Mazo;
-
+import Pilas.Pila;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Modela un mazo de cartas de solitario.
+ * modificado para usar Pilas
  * @author Cecilia Curlango
+ * modificado por Mayra García
  * @version 2025
  */
 public class DrawPile {
-    private ArrayList<CartaInglesa> cartas;
+    private Pila <CartaInglesa> cartas;
     private int cuantasCartasSeEntregan = 3;
 
     public DrawPile() {
         Mazo mazo = new Mazo();
-        cartas = mazo.getCartas();
+        cartas = new Pila<>(52);
         setCuantasCartasSeEntregan(3);
+
+        for( CartaInglesa c: mazo.getCartas() ) {
+            cartas.push(c);
+        }
+
     }
 
     /**
@@ -48,7 +54,7 @@ public class DrawPile {
     public ArrayList<CartaInglesa> getCartas(int cantidad) {
         ArrayList<CartaInglesa> retiradas = new ArrayList<>();
         for (int i = 0; i < cantidad; i++) {
-            retiradas.add(cartas.remove(0));
+            retiradas.add(cartas.pop());
         }
         return retiradas;
     }
@@ -59,20 +65,16 @@ public class DrawPile {
      * que se configuró inicialmente.
      * @return Cartas retiradas.
      */
-    public ArrayList<CartaInglesa> retirarCartas() {
-        ArrayList<CartaInglesa> retiradas = new ArrayList<>();
+    public Pila<CartaInglesa> retirarCartas() {
+        Pila<CartaInglesa> retiradas = new Pila<>(cuantasCartasSeEntregan);
         int maximoARetirar = Math.min(cartas.size(), cuantasCartasSeEntregan);
 
         for (int i = 0; i < maximoARetirar; i++) {
-            // 🔹 Sacar siempre del final (tope del mazo)
-            CartaInglesa retirada = cartas.remove(cartas.size() - 1);
+            CartaInglesa retirada = cartas.pop();
             retirada.makeFaceUp();
-            retiradas.add(retirada);
+            retiradas.push(retirada);
         }
-
-        // 🔹 Como las sacamos de atrás hacia adelante, las invertimos
-        Collections.reverse(retiradas);
-
+        System.out.println("Cartas retiradas de DrawPile");
         return retiradas;
     }
 
@@ -82,41 +84,52 @@ public class DrawPile {
      * @return true si hay cartas, false si no.
      */
     public boolean hayCartas() {
-        return cartas.size() > 0;
+        System.out.println("----HAY CARTAS DRAW PILE");
+        return !cartas.pila_vacia();
     }
 
     public CartaInglesa verCarta() {
-        CartaInglesa regresar = null;
-        if (!cartas.isEmpty()) {
-            regresar = cartas.getLast();
-        }
-        return regresar;
+        return cartas.peek();
     }
     /**
      * Agrega las cartas recibidas al monton y las voltea
      * para que no se vean las caras.
      * @param cartasAgregar cartas que se agregan
      */
-    public void recargar(ArrayList<CartaInglesa> cartasAgregar) {
-        cartas = cartasAgregar;
-        for (CartaInglesa aCarta : cartas) {
-            aCarta.makeFaceDown();
+    public void recargar(Pila<CartaInglesa> cartasAgregar) {
+        this.cartas = new Pila<>(52);
+        int contador=0;
+
+        while (!cartasAgregar.pila_vacia()) {
+            CartaInglesa c = cartasAgregar.pop();
+            c.makeFaceDown();
+            cartas.push(c);
+            contador++;
         }
+        System.out.println("Cartas recibidas a DrawPile: " + contador);
     }
+
     public int getSize(){
         return cartas.size();
     }
 
     public void voltear(){
-        for (CartaInglesa c: cartas){
+        Pila<CartaInglesa> temp = new Pila<>(52);
+        while (!cartas.pila_vacia()){
+            CartaInglesa c = cartas.pop();
             if(c.isFaceup()) c.makeFaceDown();
             else c.makeFaceUp();
+            temp.push(c);
+        }
+        while (!temp.pila_vacia()){
+            CartaInglesa c = temp.pop();
+            cartas.push(c);
         }
     }
 
     @Override
     public String toString() {
-        if (cartas.isEmpty()) {
+        if (cartas.pila_vacia()) {
             return "-E-";
         }
         return "@";

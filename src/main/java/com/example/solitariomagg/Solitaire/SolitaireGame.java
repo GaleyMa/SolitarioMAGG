@@ -2,7 +2,7 @@ package com.example.solitariomagg.Solitaire;
 
 import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Palo;
-
+import Pilas.Pila;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,23 +61,19 @@ public class SolitaireGame {
 
 
     public void drawCards() {
-        ArrayList<CartaInglesa> cards = drawPile.retirarCartas();
+        Pila<CartaInglesa> cards = drawPile.retirarCartas();
         wastePile.addCartas(cards);
     }
 
     public void cycleWastePile() {
-        if (!wastePile.hayCartas()) return; // no hay cartas que ciclar
-
-        List<CartaInglesa> todas = wastePile.getUltimasCartas(wastePile.getSize());
-        wastePile.emptyPile();        // vaciar waste
-        // invertir orden para volver a colocar en drawPile
-        Collections.reverse(todas);
-        drawPile.voltear();
-        drawPile.recargar((ArrayList<CartaInglesa>) todas);   // volver al drawPile
-
+        if (!wastePile.hayCartas()) return;
+        Pila <CartaInglesa>todas = wastePile.emptyPile();
+        drawPile.recargar(todas);
     }
 
     public boolean drawOrCycle() {
+        System.out.println("Draw vacio: "+ !drawPile.hayCartas());
+        System.out.println("Waste vacio: "+ !wastePile.hayCartas());
         if (drawPile.hayCartas()) {
             drawCards();
             return true;

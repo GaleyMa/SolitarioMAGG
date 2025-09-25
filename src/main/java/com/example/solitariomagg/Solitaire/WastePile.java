@@ -19,21 +19,28 @@ public class WastePile {
         cartas = new Pila<>(52);
     }
 
-    public void addCartas(ArrayList<CartaInglesa> nuevas) {
-        for (CartaInglesa c : nuevas) {
-            cartas.push(c);
+    public void addCartas(Pila<CartaInglesa> nuevas) {
+        while (!nuevas.pila_vacia()){
+            cartas.push(nuevas.pop());
         }
+        System.out.println("Cartas agregadas a Waste ");
     }
 
-    public ArrayList<CartaInglesa> emptyPile() {
-        ArrayList<CartaInglesa> pile = new ArrayList<>();
+    public Pila<CartaInglesa> emptyPile() {
+        Pila<CartaInglesa> aux = new Pila<>(52);
+        Pila<CartaInglesa> entrega = new Pila<>(52);
+
         while (!cartas.pila_vacia()) {
-            pile.add(cartas.pop());
+            aux.push(cartas.pop());
         }
-        // invertimos porque el pop las saca de arriba hacia abajo
-        Collections.reverse(pile);
-        return pile;
+        while (!aux.pila_vacia()){
+            entrega.push(aux.pop());
+        }
+        if (cartas.pila_vacia()) System.out.println("Waste vacío");
+        return entrega;
     }
+
+
 
     /**
      * Obtener la última carta sin removerla.
@@ -87,6 +94,7 @@ public class WastePile {
     }
 
     public boolean hayCartas() {
+        System.out.println("----HAY CARTAS WASTE PILE");
         return !cartas.pila_vacia();
     }
 }

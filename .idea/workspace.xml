@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="modificacion de FoundationDeck con pila">
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="modificacion de FoundationDeck con pila + WastePile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/FoundationDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/FoundationDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/CartaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/CartaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,24 +103,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Pilas&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Launcher.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Pilas",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\iamma\OneDrive\MAYRAPC\Uni\Algoritmos y Estructuras de Datos\LAB\P1\SolitarioMAGG\src\main\resources\Cartas" />
@@ -272,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758690633148</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="modificacion de FoundationDeck con pila + WastePile">
+      <option name="closed" value="true" />
+      <created>1758749994210</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1758749994210</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +319,8 @@
     <MESSAGE value="!" />
     <MESSAGE value="importo la clase pilas a Controller.java" />
     <MESSAGE value="modificacion de FoundationDeck con pila" />
-    <option name="LAST_COMMIT_MESSAGE" value="modificacion de FoundationDeck con pila" />
+    <MESSAGE value="modificacion de FoundationDeck con pila + WastePile" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificacion de FoundationDeck con pila + WastePile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
