@@ -20,6 +20,12 @@ public class WastePile {
 
         cartas = new Pila<>(52);
     }
+    public WastePile(ArrayList<CartaInglesa> cartas) {
+        this.cartas = new Pila<>(52);
+        for (CartaInglesa carta : cartas) {
+            this.cartas.push(carta);
+        }
+    }
 
     public void addCartas(Pila<CartaInglesa> nuevas) {
         while (!nuevas.pila_vacia()){

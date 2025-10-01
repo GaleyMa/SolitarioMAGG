@@ -128,6 +128,30 @@ public class Controller {
         }
     }
 
+    private void revertirMovimiento(){
+        CapturaCambio destino = cambios.pop();
+        CapturaCambio origen = cambios.pop();
+        int idx= destino.getIndice();
+        switch (destino.getUbicacion()) {
+            case TABLEAU:
+                game.setTableau(idx,destino.getBloque());
+                break;
+            case FOUNDATION:
+                game.setFoundation(idx,destino.getBloque());
+                break;
+        }
+
+        switch (origen.getUbicacion()) {
+            case TABLEAU:
+                game.setTableau(origen.getIndice(),origen.getBloque());
+                break;
+            case WASTE:
+                game.setWastePile(origen.getBloque());
+                break;
+        }
+    }
+
+
     private void reiniciarJuego() {
         game = new SolitaireGame();
         tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);

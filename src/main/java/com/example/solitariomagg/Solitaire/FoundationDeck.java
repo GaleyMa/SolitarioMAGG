@@ -21,6 +21,14 @@ public class FoundationDeck {
         this.cartas = new Pila<>(13);
     }
 
+    public FoundationDeck(ArrayList<CartaInglesa> cartas) {
+        this.cartas = new Pila<>(13);
+        for (CartaInglesa carta : cartas) {
+            this.cartas.push(carta);
+        }
+        this.palo=this.cartas.peek().getPalo();
+    }
+
     public FoundationDeck(CartaInglesa carta) {
         this.cartas = new Pila<>();
         if (carta.getValorBajo() == 1) {

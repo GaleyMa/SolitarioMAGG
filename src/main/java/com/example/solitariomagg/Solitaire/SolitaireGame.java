@@ -57,6 +57,18 @@ public class SolitaireGame {
     public FoundationDeck getLastFoundationUpdated() { return lastFoundationUpdated; }
 
 
+    public void setTableau(int idx, ArrayList<CartaInglesa> cartasTableau) {
+        tableau.set(idx,new TableauDeck(cartasTableau));
+    }
+
+    public void setFoundation(int idx, ArrayList<CartaInglesa> cartasFoundation) {
+        this.foundation.set(idx,new FoundationDeck(cartasFoundation));
+    }
+
+    public void setWastePile( ArrayList<CartaInglesa> wastePile) {
+        this.wastePile = new WastePile(wastePile);
+    }
+
     public void drawCards() {
         Pila<CartaInglesa> cards = drawPile.retirarCartas();
         wastePile.addCartas(cards);

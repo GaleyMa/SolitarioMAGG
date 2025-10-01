@@ -17,8 +17,15 @@ public class TableauDeck {
     /**
      * Carga las cartas iniciales y voltea la última.
      *
-     * @param cartas iniciales
+     *
      */
+    public TableauDeck() {}
+
+    public TableauDeck(ArrayList<CartaInglesa> cartas) {
+        this.cartas = cartas;
+    }
+
+
     public void inicializar(ArrayList<CartaInglesa> cartas) {
         this.cartas = cartas;
         // voltear la última carta recibida
@@ -154,4 +161,5 @@ public class TableauDeck {
 
         return cartas;
     }
+
 }
