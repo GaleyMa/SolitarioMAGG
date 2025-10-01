@@ -46,8 +46,8 @@ public class WasteGrafico {
     private void configurarWasteBack() {
         Image reverso = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/back.png")));
         ImageView img = new ImageView(reverso);
-        img.setFitWidth(80);
-        img.setFitHeight(120);
+        img.setFitWidth(100);
+        img.setPreserveRatio(true);
         wasteBackPane.getChildren().clear();
         wasteBackPane.getChildren().add(img);        wasteBackPane.setOnMouseClicked(e -> { controller.manejarWaste();});
     }

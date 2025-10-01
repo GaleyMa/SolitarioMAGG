@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="solucion de errores, modificacion de clases DrawPile para que maneje pilas">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_23_2025_4_44_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_23_2025_4_44_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]2/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" beforeDir="false" />
+    <list default="true" id="79095c1a-ac08-46a0-bd39-805b2cfaf4ac" name="Changes" comment="elimino los mensajes que agregue para encontrar errores">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Pilas/CapturaCambio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pilas/Pila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/DrawPile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/SolitaireGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Solitaire/WastePile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/FoundationGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/FoundationGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/WasteGrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/solitariomagg/grafico/WasteGrafico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/solitariomagg/solitarioview.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,7 +67,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Pilas" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,7 +111,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Pilas&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Undo&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -182,7 +177,7 @@
       <workItem from="1757879745099" duration="30711000" />
       <workItem from="1758178531544" duration="7614000" />
       <workItem from="1758347122890" duration="6889000" />
-      <workItem from="1759277503002" duration="2292000" />
+      <workItem from="1759277503002" duration="8806000" />
     </task>
     <task id="LOCAL-00001" summary="!">
       <option name="closed" value="true" />
@@ -296,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758771046708</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="elimino los mensajes que agregue para encontrar errores">
+      <option name="closed" value="true" />
+      <created>1759285149862</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1759285149862</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +339,8 @@
     <MESSAGE value="modificacion de FoundationDeck con pila" />
     <MESSAGE value="modificacion de FoundationDeck con pila + WastePile" />
     <MESSAGE value="solucion de errores, modificacion de clases DrawPile para que maneje pilas" />
-    <option name="LAST_COMMIT_MESSAGE" value="solucion de errores, modificacion de clases DrawPile para que maneje pilas" />
+    <MESSAGE value="elimino los mensajes que agregue para encontrar errores" />
+    <option name="LAST_COMMIT_MESSAGE" value="elimino los mensajes que agregue para encontrar errores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

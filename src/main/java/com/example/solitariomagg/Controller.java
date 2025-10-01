@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
+import Pilas.Pila;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Controller {
     private SolitaireGame game;
     private TableroGrafico tablero;
     private CartaGrafica cartaSeleccionada;
+    private Pila<TableroGrafico> movimientos;
 
     @FXML private Pane wastePane, wasteBackPane;
     @FXML private Pane tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7;

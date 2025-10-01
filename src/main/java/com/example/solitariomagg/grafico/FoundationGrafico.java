@@ -29,8 +29,8 @@ public class FoundationGrafico {
         if (carta == null) {
             Image img = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/cartas/back.png")));
             ImageView slot = new ImageView(img);
-            slot.setFitWidth(80);
-            slot.setFitHeight(120);
+            slot.setFitWidth(100);
+            slot.setPreserveRatio(true);
             slot.setOpacity(0.3);
 
             slot.setOnMouseClicked(e -> controller.intentarMoverACasillaVaciaFoundation(indice));
