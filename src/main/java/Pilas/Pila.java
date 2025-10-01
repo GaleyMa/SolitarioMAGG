@@ -39,7 +39,6 @@ public class Pila<T> {
         return (tope==pila.length-1) ;
     }
     public boolean pila_vacia(){
-        System.out.println("tope de pila"+tope);
         return (tope==-1);
     }
 
@@ -47,4 +46,3 @@ public class Pila<T> {
         return tope+1;
     }
 }
-

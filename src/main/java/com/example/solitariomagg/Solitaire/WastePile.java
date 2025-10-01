@@ -8,6 +8,8 @@ import java.util.Collections;
  * Modela el montículo donde se colocan las cartas
  * que se extraen de Draw pile.
  *
+ * implementacion de pilas por mayra garcia
+ *
  * @author (Cecilia Curlango Rosas)
  * @version (2025-2)
  */
@@ -39,7 +41,6 @@ public class WastePile {
         if (cartas.pila_vacia()) System.out.println("Waste vacío");
         return entrega;
     }
-
 
 
     /**
@@ -94,7 +95,6 @@ public class WastePile {
     }
 
     public boolean hayCartas() {
-        System.out.println("----HAY CARTAS WASTE PILE");
         return !cartas.pila_vacia();
     }
 }

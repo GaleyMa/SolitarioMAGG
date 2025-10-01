@@ -74,7 +74,6 @@ public class DrawPile {
             retirada.makeFaceUp();
             retiradas.push(retirada);
         }
-        System.out.println("Cartas retiradas de DrawPile");
         return retiradas;
     }
 
@@ -84,7 +83,6 @@ public class DrawPile {
      * @return true si hay cartas, false si no.
      */
     public boolean hayCartas() {
-        System.out.println("----HAY CARTAS DRAW PILE");
         return !cartas.pila_vacia();
     }
 
@@ -98,15 +96,11 @@ public class DrawPile {
      */
     public void recargar(Pila<CartaInglesa> cartasAgregar) {
         this.cartas = new Pila<>(52);
-        int contador=0;
-
         while (!cartasAgregar.pila_vacia()) {
             CartaInglesa c = cartasAgregar.pop();
             c.makeFaceDown();
             cartas.push(c);
-            contador++;
         }
-        System.out.println("Cartas recibidas a DrawPile: " + contador);
     }
 
     public int getSize(){

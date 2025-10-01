@@ -1,11 +1,8 @@
 package com.example.solitariomagg.Solitaire;
-
 import com.example.solitariomagg.cartas.CartaInglesa;
 import com.example.solitariomagg.cartas.Palo;
 import Pilas.Pila;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class SolitaireGame {
     private ArrayList<TableauDeck> tableau = new ArrayList<>();
