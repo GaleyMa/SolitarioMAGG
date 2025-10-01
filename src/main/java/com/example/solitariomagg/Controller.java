@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.event.ActionEvent;
 import Pilas.Pila;
+import Pilas.CapturaCambio;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Controller {
     private SolitaireGame game;
     private TableroGrafico tablero;
     private CartaGrafica cartaSeleccionada;
-    private Pila<TableroGrafico> movimientos;
+    private Pila<CapturaCambio> cambios;
 
     @FXML private Pane wastePane, wasteBackPane;
     @FXML private Pane tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7;
@@ -36,6 +37,7 @@ public class Controller {
         }};
         game = new SolitaireGame();
         tablero = new TableroGrafico(game, tableauPanes, foundationPanes, wastePane, wasteBackPane, this);
+        cambios= new Pila<CapturaCambio>(6);
         actualizarVista();
     }
 
@@ -52,20 +54,28 @@ public class Controller {
         }
 
         boolean movimiento = false;
+        CapturaCambio origen = null;
+        CapturaCambio destino = null;
 
         if (cartaSeleccionada.getOrigen() == OrigenCarta.WASTE) {
-            if (cg.getOrigen() == OrigenCarta.TABLEAU)
+            origen = new CapturaCambio(cartaSeleccionada.getOrigen(), game.getWastePile().getUltimasCartas(game.getWastePile().getSize()));
+            if (cg.getOrigen() == OrigenCarta.TABLEAU) {
+                destino = new CapturaCambio(cg.getOrigen(), cg.getIndiceMazo(), game.getTableau(cg.getIndiceMazo()).getCards());
                 movimiento = game.moveWasteToTableau(cg.getIndiceMazo());
-            else if (cg.getOrigen() == OrigenCarta.FOUNDATION)
+            }else if (cg.getOrigen() == OrigenCarta.FOUNDATION) {
+                destino= new CapturaCambio(cg.getOrigen(),cg.getIndiceMazo(), game.getTableau(cg.getIndiceMazo()).getCards());
                 movimiento = game.moveWasteToFoundation(cg.getIndiceMazo());
-
+            }
         } else if (cartaSeleccionada.getOrigen() == OrigenCarta.TABLEAU) {
             int fuente = cartaSeleccionada.getIndiceMazo();
-            if (cg.getOrigen() == OrigenCarta.TABLEAU)
+            origen=new CapturaCambio(OrigenCarta.TABLEAU,fuente,game.getTableau(fuente).getCards());
+            if (cg.getOrigen() == OrigenCarta.TABLEAU) {
+                destino= new CapturaCambio(OrigenCarta.TABLEAU,cg.getIndiceMazo(),game.getTableau(cg.getIndiceMazo()).getCards());
                 movimiento = game.moveTableauToTableau(fuente, cg.getIndiceMazo(), cartaSeleccionada.getCarta());
-            else if (cg.getOrigen() == OrigenCarta.FOUNDATION
-                    && cartaSeleccionada.getCarta() == game.getTableau().get(fuente).verUltimaCarta())
+            }else if (cg.getOrigen() == OrigenCarta.FOUNDATION && cartaSeleccionada.getCarta() == game.getTableau().get(fuente).verUltimaCarta()){
+                destino= new CapturaCambio(OrigenCarta.FOUNDATION,game.getFoundation(cg.getIndiceMazo()).getCartas());
                 movimiento = game.moveTableauToFoundation(fuente, cg.getIndiceMazo());
+            }
         }
 
         cartaSeleccionada.setStyle("");
@@ -74,6 +84,8 @@ public class Controller {
         if (movimiento) {
             actualizarVista();
             if (game.isGameOver()) mostrarGameOver(false);
+            cambios.push(origen);
+            cambios.push(destino);
         }
     }
 

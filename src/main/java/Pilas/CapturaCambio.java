@@ -10,11 +10,10 @@ public class CapturaCambio {
     int indice;
     ArrayList<CartaInglesa> bloque;
 
-    public CapturaCambio(OrigenCarta ubicacion, CartaInglesa carta) {
+    public CapturaCambio(OrigenCarta ubicacion, ArrayList<CartaInglesa> cartas) {
         this.ubicacion = ubicacion;
         this.indice = -1;
-        this.bloque = new ArrayList<>();
-        bloque.add(carta);
+        this.bloque = new ArrayList<>(cartas);
     }
 
     public CapturaCambio(OrigenCarta ubicacion, int indice, ArrayList<CartaInglesa> cartas) {

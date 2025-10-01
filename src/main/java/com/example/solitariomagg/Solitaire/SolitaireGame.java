@@ -123,8 +123,6 @@ public class SolitaireGame {
     }
 
 
-
-
     public boolean moveWasteToFoundation(int foundationIdx) {
         if (foundationIdx < 0 || foundationIdx > 3) return false;
         CartaInglesa carta = wastePile.verCarta();
