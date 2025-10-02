@@ -84,6 +84,22 @@ public class Controller {
         if (movimiento) {
             actualizarVista();
             if (game.isGameOver()) mostrarGameOver(false);
+
+            if(cambios.pila_llena()){
+                Pila<CapturaCambio> aux= new Pila<>(6);
+                Pila<CapturaCambio> basura= new Pila<>(6);
+
+                for(int i=0;i<4;i++){
+                 aux.push(cambios.pop());
+                }
+                basura.push(cambios.pop());
+                basura.push(cambios.pop());
+
+                for(int i=0;i<4;i++){
+                    cambios.push(aux.pop());
+                }
+
+            }
             cambios.push(origen);
             cambios.push(destino);
         }
@@ -148,6 +164,19 @@ public class Controller {
             case WASTE:
                 game.setWastePile(origen.getBloque());
                 break;
+        }
+
+        actualizarVista();
+    }
+
+    private void undo(){
+        if(cambios.pila_vacia()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Limite de 'Undo' excedido");
+            alert.setContentText("Solo se permiten deshacer los últimos 3 movimientos seguidos");
+        }else{
+            revertirMovimiento();
         }
     }
 
